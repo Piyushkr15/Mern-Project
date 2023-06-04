@@ -4,12 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <Navbar bg="primary" expand="lg" variant='dark'>
             <Container>
-                <Navbar.Brand href="/">Notes App</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to="/">
+                        NotesWriter
+                    </Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='m-auto'>
@@ -22,7 +27,11 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#home">My Notes</Nav.Link>
+                        <Nav.Link>
+                            <Link to ="/mynotes">
+                                My Notes
+                            </Link>
+                        </Nav.Link>
                         <NavDropdown title="Piyush Kumar" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
                             <NavDropdown.Divider />

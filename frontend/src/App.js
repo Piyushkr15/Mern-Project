@@ -2,16 +2,21 @@ import "./App.css"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer";
 import LandingPage from "./screens/LandingPage";
+import MyNotes from "./screens/MyNotes";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <main style={{ minHeight: "93vh" }} >
-        <LandingPage />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />}/>
+          <Route path="/mynotes" element={<MyNotes />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
