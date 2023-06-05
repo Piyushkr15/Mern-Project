@@ -1,7 +1,16 @@
 import { Button, Container, Row } from "react-bootstrap";
 import "./LandingStyles.css";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
+    // const { userInfo } = userLogin;
+
+    // useEffect(() => {
+    //     const userInfo = localStorage.getItem("uesrInfo");
+    //     if (userInfo) {
+    //         history.push("/mynotes");
+    //     }
+    // }, [history]);
     return (
         <div className="main">
             <Container>
@@ -12,16 +21,21 @@ function LandingPage() {
                             <p className="subtitle">Write your thoughts with privacy</p>
                         </div>
                         <div className="buttonContainer">
-                            <Button size="lg" className="landingbutton">
-                                Login
-                            </Button>
-                            <Button
-                                variant="outline-primary"
-                                size="lg"
-                                className="landingbutton"
-                            >
-                                Signup
-                            </Button>
+                            <Link to="/login">
+                                <Button size="lg" className="landingbutton">
+                                    Login
+                                </Button>
+
+                            </Link>
+                            <Link to="/register">
+                                <Button
+                                    variant="outline-primary"
+                                    size="lg"
+                                    className="landingbutton"
+                                >
+                                    Signup
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </Row>
