@@ -5,10 +5,22 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { } from "react-router-dom";
+import { logout } from "../../actions/userActions";
 
 const Header = () => {
-    
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
+    const logoutHandler = () => {
+        dispatch(logout());
+        navigate('/');
+    };
+
 
     return (
         <Navbar bg="primary" expand="lg" variant='dark'>
@@ -21,7 +33,7 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='m-auto'>
-                        <Form inline>
+                        <Form inline = "true">
                             <Form.Control
                                 type="text"
                                 placeholder="Search"
@@ -30,18 +42,15 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link>
-                            <Link to="/mynotes" className='abc'>
+                        <Nav.Link as={Link} to="/mynotes">
+                            {/* <Link to="/mynotes" className='abc'> */}
                                 My Notes
-                            </Link>
+                            {/* </Link> */}
                         </Nav.Link>
                         <NavDropdown title="Piyush Kumar" id="basic-nav-dropdown" className='abc'>
                             <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={() => {
-                                localStorage.removeItem("userInfo");
-                                navigate("/");
-                            }}>Logout</NavDropdown.Item>
+                            <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
