@@ -29,7 +29,7 @@ const RegisterScreen = (history) => {
     if (userInfo) {
       navigate("/mynotes");
     }
-  }, [history, navigate, userInfo]);
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
