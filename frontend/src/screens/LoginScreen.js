@@ -8,7 +8,7 @@ import ErrorMessage from '../components/ErrorMessage';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from "../actions/userActions";
 
-const LoginScreen = (history) => {
+const LoginScreen = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const LoginScreen = (history) => {
     if (userInfo) {
       navigate("/mynotes");
     }
-  }, [history, userInfo]);
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
