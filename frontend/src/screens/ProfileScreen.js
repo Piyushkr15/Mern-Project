@@ -8,7 +8,7 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
-const ProfileScreen = ({ location }) => {
+const ProfileScreen = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pic, setPic] = useState();
@@ -49,8 +49,8 @@ const ProfileScreen = ({ location }) => {
                 method: "post",
                 body: data
             }).then((res) => res.json()).then((data) => {
-                console.log(data);
                 setPic(data.url.toString());
+                console.log(data);
             }).catch((err) => {
                 console.log(err);
             });
