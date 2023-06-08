@@ -40,7 +40,7 @@ const MyNotes = ({ search }) => {
   }, [dispatch, navigate, userInfo, successCreate, successUpdate, successDelete])
 
   return (
-    <MainScreen title={`Welcome back ${userInfo.name}..`}>
+    <MainScreen title={`Welcome back ${userInfo?.name}..`}>
       <Link to="/createnote">
         <Button style={{ marginLeft: 10, marginBottom: 6 }} size='lg'>
           Create New Note

@@ -33,7 +33,7 @@ const Header = ({ setSearch }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='m-auto'>
-                        <Form inline = "true">
+                        <Form inline="true">
                             <Form.Control
                                 type="text"
                                 placeholder="Search"
@@ -42,18 +42,28 @@ const Header = ({ setSearch }) => {
                             />
                         </Form>
                     </Nav>
-                    <Nav>
+                    {userInfo ? (<Nav>
                         <Nav.Link as={Link} to="/mynotes">
                             {/* <Link to="/mynotes" className='abc'> */}
-                                My Notes
+                            My Notes
                             {/* </Link> */}
                         </Nav.Link>
-                        <NavDropdown title="Piyush Kumar" id="basic-nav-dropdown" className='abc'>
-                            <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
+                        <NavDropdown title={`${userInfo?.name}`} id="basic-nav-dropdown" className='abc'>
+                            <NavDropdown.Item href='/profile'>
+                                    My Profile
+                            </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
                         </NavDropdown>
-                    </Nav>
+                    </Nav>)
+                        :
+                        (<Nav>
+                            {" "}
+                            <Nav.Link as={Link} to="/login">
+                                Login
+                            </Nav.Link>
+                        </Nav>)
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>

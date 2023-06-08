@@ -166,6 +166,16 @@ sup {
   color: #ffffff;
   text-decoration: none;
 }
+.xyz{
+  color: #787878;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 0px;
+}
+.xyz:hover{
+  color: #000000;
+  text-decoration: none;
+}
 a {
   color: #158cba;
   text-decoration: none;

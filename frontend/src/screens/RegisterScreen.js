@@ -131,7 +131,7 @@ const RegisterScreen = (history) => {
               type="file"
               label="Upload Profile Picture"
               className='py-1'
-              custom="false"
+              custom="true"
             />
           </Form.Group>
 
