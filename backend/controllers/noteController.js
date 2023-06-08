@@ -30,15 +30,14 @@ const createNote = asyncHandler(
 
             const createdNote = await note.save();
             
-            res.status(201).json(createNote);
-
+            res.status(201).json(createdNote);
         }
     }
 )
 
 const getNoteById = asyncHandler(
     async(req, res) => {
-        const note = await Note.find(req.params.id);
+        const note = await Note.findById(req.params.id);
         if(note){
             res.json(note);
         }
@@ -83,7 +82,7 @@ const deleteNote = asyncHandler(
         }
 
         if(note){
-            await note.remove();
+            await Note.deleteOne({ _id: req.params.id });
             res.json({message: "Note Removed Successfully"});
         }
         else{
