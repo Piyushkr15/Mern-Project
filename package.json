@@ -10,12 +10,11 @@
   },
   "name": "mern-project",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "serv": "node backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm serv\" \"npm run client\""
+    "dev": "concurrently \"npm start\" \"npm run client\""
   },
   "keywords": [],
   "author": "Piyush Kumar",
